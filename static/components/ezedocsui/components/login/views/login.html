@@ -1,0 +1,49 @@
+
+<div class="login-box">
+  <div class="login-logo">
+    <b>EZE</b> DOCS
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body bdr-all">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <!--Form Temporaily disabled -->
+
+    <form role="form" name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate>
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email" name="email" ng-model="userLoginScope.email" ng-required="true">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Email is required.</p>
+
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" name="password" ng-model="userLoginScope.password" ng-required="true">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Password is required.</p>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <!--<input type="checkbox"> Remember Me-->
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <a href="dashboard">
+            <button type="submit" ng-click="userLoginScope.login()" ng-disabled="loginForm.$invalid" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          </a>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <a ui-sref="forgotpassword" >I forgot my password</a><br>
+    <a ui-sref="registeruser" class="text-center">Register a New Member</a>
+    <div ng-show="userLoginScope.errormsg"  class=" m-b-0 m-t-10  well well-sm alert alert-danger text-center">Incorrect Email or Password.</a> </div>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+

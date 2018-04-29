@@ -1,0 +1,33 @@
+<div class="">
+<div class="col-sm-10 col-md-offset-1 scrollit p-t-b-25" ng-init="registerUserScope.ezeDocsUsers()">
+    <div class="pull-right" style="margin-bottom:15px">
+        <a href="javascript:void(0)">
+            <i class="fa fa-arrow-circle-left"></i> <span ui-sref="dashboard">Dashboard</span>
+        </a>
+    </div>
+    <table st-table="displayedCollection" style="" st-safe-src="registerUserScope.users" class="table table-striped">
+        <thead>
+
+        <tr>
+            <th class="p-l-r-0"  colspan="5">
+                <input st-search="" class="form-control searchBar-w pull-right" placeholder="Search Table..." type="text"/>
+            </th>
+        </tr>
+        <tr class="table-head-color">
+            <th st-sort="manager_name">User Name</th>
+            <th st-sort="project_name">Email</th>
+            <th st-sort="proj_typemaster_id">DOB</th>
+            <th >Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in displayedCollection">
+            <td>{{row.userName}}</td>
+            <td>{{row.userEmail}}</td>
+            <td>{{row.userDob}}</td>
+            <td><i class="fa fa-edit" style="cursor:pointer" ng-click="registerUserScope.changeState(row.userId)"></i> <i class="fa fa-trash" style="color:orangered; cursor:pointer" ng-click="registerUserScope.deleteUser(row.userId, $index)"></i></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

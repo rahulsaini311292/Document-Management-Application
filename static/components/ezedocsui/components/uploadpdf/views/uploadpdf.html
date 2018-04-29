@@ -1,0 +1,44 @@
+
+<div class="login-box">
+  <div class="login-logo">
+    <b>EZE</b> DOCS
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body bdr-all">
+    <p class="login-box-msg">Upload PDF here</p>
+
+    <!--Form Temporaily disabled -->
+
+    <form role="form" name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate enctype="multipart/form-data">
+      <div class="form-group has-feedback">
+        <input class="form-control" id="fileUpload" type="file" name="pdfFile" file-model="pdfScope.pdfFile">
+
+      </div>
+      <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">PDF is required.</p>
+
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <!--<input type="checkbox"> Remember Me-->
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <a href="dashboard">
+            <button type="submit" ng-click="pdfScope.savePdf()" ng-disabled="loginForm.$invalid" class="btn btn-primary btn-block btn-flat">Save</button>
+          </a>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <a href="javascript:void(0)" ui-sref="listpdf"><span><i class="fa fa-arrow-circle-left"></i> Back</span></a>
+    <div ng-show="pdfScope.successmsg"  class=" m-b-0 m-t-10  well well-sm alert alert-success text-center">PDF is saved.
+      <a ui-sref="listpdf">Click to go to listing page</a></div>
+    <div ng-show="pdfScope.errormsg"  class=" m-b-0 m-t-10  well well-sm alert alert-danger text-center">PDF is not saved. Please Try again !</a> </div>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+

@@ -1,0 +1,62 @@
+
+<div class="register-box">
+  <div class="register-logo">
+    <b>EZE</b> DOCS
+  </div>
+
+  <div class="register-box-body bdr-all">
+    <p class="login-box-msg">Update membership</p>
+
+    <form role="form" name="editUserForm" ng-init="registerUserScope.getDatatoUpdate()" ng-submit="submitForm(editUserForm.$valid)" novalidate>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Full name" ng-model="registerUserScope.data.userName" name="userName" ng-required="true">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <p ng-show="editUserForm.userName.$invalid && !editUserForm.userName.$pristine" class="help-block">Username is required.</p>
+
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email" name="userEmail" ng-model="registerUserScope.data.userEmail" ng-required="true">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <p ng-show="editUserForm.userEmail.$invalid && !editUserForm.userEmail.$pristine" class="help-block">User's Email is required.</p>
+
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" id="datepicker" placeholder="Date Of Birth" ng-model="registerUserScope.data.userDob" name="dob" ng-required="true">
+        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+      </div>
+      <p ng-show="editUserForm.dob.$invalid && !editUserForm.dob.$pristine" class="help-block">DOB is required.</p>
+
+
+      <div class="row">
+           <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <!--<input type="checkbox"> I agree to the <a href="#">terms</a>-->
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" ng-click="registerUserScope.saveUpdatedUser()" ng-disabled="editUserForm.$invalid" class="btn btn-primary btn-block btn-flat">Update</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <a ui-sref="listusers" class="text-center"><i class="fa fa-arrow-circle-left"></i> Back</a>
+
+    <div ng-show="registerUserScope.successmsg" class="m-b-0 m-t-10 well well-sm alert alert-success text-center">User is Updated. <a ui-sref="listusers"> Click to go to user list page</a> </div>
+    <div ng-show="registerUserScope.errormsg"  class=" m-b-0 m-t-10  well well-sm alert alert-danger text-center">User is not Updated. Please try again.</a> </div>
+
+  </div>
+  <!-- /.form-box -->
+</div>
+
+<script>
+  //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+
+</script>
+
